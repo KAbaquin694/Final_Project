@@ -1,16 +1,25 @@
-
-{{name}}
-
-<img src="{{img}}" alt="">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
 
 
-{{!-- Need multiple random dad jokes, this just provides just one --}}
 
 <div class="container">
     <div class="row">
-        <div class="col-sm">Dad Jokes</div>
-        <div class="col-sm">Pokémon</div>
-        <div class="col-sm">Music</div>
+        <div class="col-sm" style="text-align:center; margin:auto"> <a href="#">Dad Jokes</a></div>
+        <div class="col-sm" style="text-align:center; margin:auto"> <a href="#">Pokémon</a></div>
+        <div class="col-sm" style="text-align:center; margin:auto"> <a href="#">Weather</a></div>
     </div>
 </div>
-<div class="container-fluid">This is a sentence.</div>
+
+
+<div class="card" style="background-color:rgb(157, 157, 157); width:200px; margin:auto">
+<img src="{{img}}" alt="" style="margin:auto">
+  <div class="card-body" style="margin:auto">
+    <h4 style="text-align:center;" > {{name}} </h4>
+    <p class="card-text" style="text-align:center;" >This is a pokémon</p>
+    <a href="#" class="btn btn-primary" >Click to do nothing.</a>
+  </div>
+</div>
+
+
+{{!-- <div class="container-fluid">This is a sentence.</div> --}}
