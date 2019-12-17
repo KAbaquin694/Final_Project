@@ -60,10 +60,13 @@ app.get('/weather', async (req, res) => {
 try {
         res.send("This Is Today's Weather.")
         const URI = `api.openweathermap.org/data/2.5/weather?q=Phoenix`
-        const weatherToday = await fetch(URI);
-        // res.render('index', {
-        //     weatherToday
-        // });
+        const weatherData = await fetch(URI);
+        const json = await weatherData.json();
+        weatherToday = await json.name;
+        
+        await res.render('index', {
+            name: weatherToday
+        });
 
 } catch (error) {
     console.log(error);
