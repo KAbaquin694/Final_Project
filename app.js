@@ -5,11 +5,12 @@ var port = 7777;
 const fetch = require('node-fetch');
 
 const hbs = require('express-handlebars')({
-    extname: '.hbs',
-});
+    defaultLayout: "main",
+    extname: '.hbs'
+  });
+  app.engine('hbs', hbs);
+  app.set('view engine', 'hbs');
 
-app.engine('hbs', hbs);
-app.set('view engine','hbs');
 
 app.get('/', (req, res) => {
     res.send("This Is Home.")
@@ -58,13 +59,13 @@ app.get('/joke', async (req, res) => {
 
 app.get('/weather', async (req, res) => {
 try {
-        res.send("This Is Today's Weather.")
-        const URI = `api.openweathermap.org/data/2.5/weather?q=Phoenix`
+
+        const URI = `https://api.openweathermap.org/data/2.5/weather?q=Phoenix`
         const weatherData = await fetch(URI);
         const json = await weatherData.json();
         weatherToday = await json.name;
-        
-        await res.render('index', {
+        console.log(json)
+        await res.render('weather', {
             name: weatherToday
         });
 
